@@ -6,12 +6,13 @@
 
     <groupId>com.xxiaohei.cloud</groupId>
     <artifactId>xxiaohei-cloud-framework</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${xxiaohei-cloud.version}</version>
     <packaging>pom</packaging>
     <description>spring cloud alibaba脚手架核心包</description>
     <modules>
         <module>xxiaohei-cloud-nacos</module>
         <module>xxiaohei-cloud-boot</module>
+        <module>xxiaohei-cloud-feign</module>
     </modules>
 
     <properties>
@@ -22,6 +23,7 @@
 
         <spring-cloud-alibaba.version>2022.0.0.0-RC2</spring-cloud-alibaba.version>
         <spring-cloud.version>2022.0.0-RC2</spring-cloud.version>
+        <xxiaohei-cloud.version>0.0.1-SNAPSHOT</xxiaohei-cloud.version>
     </properties>
 
     <dependencies>

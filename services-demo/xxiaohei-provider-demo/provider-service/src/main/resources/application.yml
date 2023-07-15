@@ -1,0 +1,26 @@
+server:
+  port: 8081
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web: # http://127.0.0.1:8081/actuator/nacosconfig
+      exposure:
+        include: '*'
+spring:
+  application:
+    name: provider-service
+  cloud:
+    nacos:
+      config:
+        namespace: ${spring.profiles.active}
+        contextPath: /nacos
+        prefix: ${spring.application.name}
+      discovery:
+        namespace: ${spring.profiles.active}
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+  config:
+    import: nacos:${spring.application.name}-${spring.profiles.active}.yml?refresh=true

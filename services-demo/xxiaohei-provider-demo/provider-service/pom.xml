@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.xxiaohei.cloud</groupId>
-        <artifactId>xxiaohei-producer-demo</artifactId>
+        <artifactId>xxiaohei-provider-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>producer-service</artifactId>
+    <artifactId>provider-service</artifactId>
 
     <dependencies>
 
@@ -50,7 +50,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.xxiaohei.ProducerApplication</mainClass>
+                    <mainClass>com.xxiaohei.ProviderApplication</mainClass>
                     <skip>true</skip>
                 </configuration>
                 <executions>

@@ -2,15 +2,17 @@ package com.xxiaohei;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @author 小小黑
  */
+@EnableDiscoveryClient
 @SpringBootApplication
-public class ProducerApplication {
+public class ProviderApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProducerApplication.class, args);
+        SpringApplication.run(ProviderApplication.class, args);
     }
 
 }

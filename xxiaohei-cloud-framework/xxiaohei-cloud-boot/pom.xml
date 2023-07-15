@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.xxiaohei.cloud</groupId>
         <artifactId>xxiaohei-cloud-framework</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${xxiaohei-cloud.version}</version>
     </parent>
 
     <packaging>pom</packaging>
