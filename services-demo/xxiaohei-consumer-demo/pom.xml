@@ -3,24 +3,26 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>com.xxiaohei.cloud</groupId>
         <artifactId>xxiaohei-cloud-framework</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>xxiaohei-provider-demo</artifactId>
+    <groupId>org.example</groupId>
+    <artifactId>xxiaohei-consumer-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>provider-service</module>
-        <module>provider-api</module>
+        <module>consumer-service</module>
     </modules>
 
     <properties>
         <xxiaohei-cloud-nacos.version>0.0.1-SNAPSHOT</xxiaohei-cloud-nacos.version>
         <xxiaohei-cloud-boot.version>0.0.1-SNAPSHOT</xxiaohei-cloud-boot.version>
         <xxiaohei-cloud-feign.version>0.0.1-SNAPSHOT</xxiaohei-cloud-feign.version>
+        <xxiaohei-feign-enhancer.version>0.0.1-SNAPSHOT</xxiaohei-feign-enhancer.version>
     </properties>
 
 </project>

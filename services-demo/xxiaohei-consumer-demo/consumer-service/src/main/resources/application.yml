@@ -1,17 +1,20 @@
 server:
-  port: 18081
+  port: 18082
 management:
   endpoint:
     health:
       show-details: always
   endpoints:
-    web: # http://127.0.0.1:18081/actuator/nacosconfig
+    web: # http://127.0.0.1:18082/actuator/nacosconfig
       exposure:
         include: '*'
 spring:
   application:
-    name: provider-service
+    name: consumer-service
   cloud:
+    loadbalancer:
+      nacos:
+        enabled: true
     nacos:
       config:
         namespace: ${spring.profiles.active}
