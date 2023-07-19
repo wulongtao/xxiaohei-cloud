@@ -11,7 +11,20 @@
 
     <artifactId>xxiaohei-feign-enhancer</artifactId>
 
+    <properties>
+        <feign-okhttp.version>12.4</feign-okhttp.version>
+    </properties>
+
     <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-okhttp -->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+            <version>12.4</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
