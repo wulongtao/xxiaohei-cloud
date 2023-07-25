@@ -1,5 +1,5 @@
 server:
-  port: 18082
+  port: 8080
 management:
   endpoint:
     health:
@@ -10,8 +10,22 @@ management:
         include: '*'
 spring:
   application:
-    name: consumer-service
+    name: xxiaohei-gateway
   cloud:
+    gateway:
+      routes:
+        - id: provider-service
+          uri: lb://provider-service
+          predicates:
+            - Path=/provider/**
+          filters:
+            - StripPrefix=1
+        - id: consumer-service
+          uri: lb://consumer-service
+          predicates:
+            - Path=/consumer1/**
+          filters:
+            - StripPrefix=1
     loadbalancer:
       nacos:
         enabled: true
@@ -27,11 +41,6 @@ spring:
       server-addr: 127.0.0.1:8848
       username: nacos
       password: nacos
-    openfeign:
-      httpclient:
-        enabled: false
-      okhttp:
-        enabled: true
   config:
     import:
       - optional:nacos:${spring.application.name}.${spring.cloud.nacos.config.file-extension}?refresh=true

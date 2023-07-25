@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>com.xxiaohei.cloud</groupId>
+        <artifactId>xxiaohei-cloud-framework</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>xxiaohei-gateway</artifactId>
+
+    <properties>
+        <xxiaohei-cloud-nacos.version>0.0.1-SNAPSHOT</xxiaohei-cloud-nacos.version>
+        <xxiaohei-cloud-boot.version>0.0.1-SNAPSHOT</xxiaohei-cloud-boot.version>
+        <xxiaohei-cloud-feign.version>0.0.1-SNAPSHOT</xxiaohei-cloud-feign.version>
+        <xxiaohei-feign-enhancer.version>0.0.1-SNAPSHOT</xxiaohei-feign-enhancer.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xxiaohei.cloud</groupId>
+            <artifactId>xxiaohei-cloud-gateway</artifactId>
+            <version>${xxiaohei-cloud-boot.version}</version>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xxiaohei.cloud</groupId>
+            <artifactId>xxiaohei-cloud-sentinel</artifactId>
+            <version>${xxiaohei-cloud-boot.version}</version>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xxiaohei.cloud</groupId>
+            <artifactId>xxiaohei-cloud-nacos</artifactId>
+            <version>${xxiaohei-cloud-nacos.version}</version>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xxiaohei.cloud</groupId>
+            <artifactId>xxiaohei-cloud-boot</artifactId>
+            <version>${xxiaohei-cloud-boot.version}</version>
+            <type>pom</type>
+        </dependency>
+    </dependencies>
+
+</project>

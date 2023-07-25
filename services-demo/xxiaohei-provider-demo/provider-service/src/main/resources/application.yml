@@ -24,6 +24,21 @@ spring:
       server-addr: 127.0.0.1:8848
       username: nacos
       password: nacos
+    sentinel:
+      transport:
+        port: 22081 # 加10000
+        dashboard: localhost:9999
+      datasource:
+        flow-block:
+          nacos:
+            server-addr: localhost:8848
+            groupId: sentinel
+            dataId: ${spring.application.name}-rules
+            rule-type: flow
+            data-type: json
+            username: nacos
+            password: nacos
+            namespace: ${spring.profiles.active}
   config:
     import:
       - optional:nacos:${spring.application.name}.${spring.cloud.nacos.config.file-extension}?refresh=true

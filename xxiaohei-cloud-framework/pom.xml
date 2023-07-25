@@ -13,6 +13,8 @@
         <module>xxiaohei-cloud-nacos</module>
         <module>xxiaohei-cloud-boot</module>
         <module>xxiaohei-cloud-feign</module>
+        <module>../xxiaohei-cloud-enhancer/xxiaohei-feign-enhancer</module>
+        <module>../cloud-core-services/xxiaohei-gateway</module>
     </modules>
 
     <properties>

@@ -13,7 +13,7 @@ public class TestFeignController {
 
     @GetMapping("/testFeign")
     public String testFeign() {
-        return testClient.test();
+        return testClient.test() + "modify";
     }
 
 
