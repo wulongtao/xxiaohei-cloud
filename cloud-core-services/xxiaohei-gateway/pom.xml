@@ -17,6 +17,7 @@
         <xxiaohei-cloud-boot.version>0.0.1-SNAPSHOT</xxiaohei-cloud-boot.version>
         <xxiaohei-cloud-feign.version>0.0.1-SNAPSHOT</xxiaohei-cloud-feign.version>
         <xxiaohei-feign-enhancer.version>0.0.1-SNAPSHOT</xxiaohei-feign-enhancer.version>
+        <xxiaohei-nacos-enhancer.version>0.0.1-SNAPSHOT</xxiaohei-nacos-enhancer.version>
     </properties>
 
     <dependencies>
@@ -41,9 +42,8 @@
 
         <dependency>
             <groupId>com.xxiaohei.cloud</groupId>
-            <artifactId>xxiaohei-cloud-nacos</artifactId>
-            <version>${xxiaohei-cloud-nacos.version}</version>
-            <type>pom</type>
+            <artifactId>xxiaohei-nacos-enhancer</artifactId>
+            <version>${xxiaohei-nacos-enhancer.version}</version>
         </dependency>
 
         <dependency>

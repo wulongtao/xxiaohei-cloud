@@ -1,5 +1,8 @@
 */logs/
 target/
+nacos/
+!zz-config/*
+!zz-config/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/

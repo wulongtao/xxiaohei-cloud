@@ -13,8 +13,10 @@
         <module>xxiaohei-cloud-nacos</module>
         <module>xxiaohei-cloud-boot</module>
         <module>xxiaohei-cloud-feign</module>
+        <module>xxiaohei-cloud-sentinel</module>
+        <module>xxiaohei-cloud-gateway</module>
         <module>../xxiaohei-cloud-enhancer/xxiaohei-feign-enhancer</module>
-        <module>../cloud-core-services/xxiaohei-gateway</module>
+        <module>../xxiaohei-cloud-enhancer/xxiaohei-nacos-enhancer</module>
     </modules>
 
     <properties>
@@ -24,7 +26,7 @@
         <spring-boot.version>3.0.2</spring-boot.version>
 
         <spring-cloud-alibaba.version>2022.0.0.0-RC2</spring-cloud-alibaba.version>
-        <spring-cloud.version>2022.0.0-RC2</spring-cloud.version>
+        <spring-cloud.version>2022.0.1</spring-cloud.version>
         <xxiaohei-cloud.version>0.0.1-SNAPSHOT</xxiaohei-cloud.version>
 
         <lombok.version>1.18.20</lombok.version>

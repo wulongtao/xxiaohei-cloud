@@ -55,3 +55,35 @@ feign:
   okhttp:
     enabled: true
 ```
+
+
+### xxiaohei-nacos-enhancer
+
+实现了本地开发调用的负载均衡算法
+
+
+### xxiaohei-feign-enhancer
+
+## 核心服务
+
+### xxiaohei-gateway
+
+服务网关，nacos配置动态路由如下：
+```yaml
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: provider-service
+          uri: lb://provider-service
+          predicates:
+            - Path=/provider/**
+          filters:
+            - StripPrefix=1
+        - id: consumer-service
+          uri: lb://consumer-service
+          predicates:
+            - Path=/consumer1/**
+          filters:
+            - StripPrefix=1
+```
