@@ -1,6 +1,7 @@
 */logs/
 target/
 nacos/
+sentinel/
 !zz-config/*
 !zz-config/
 !.mvn/wrapper/maven-wrapper.jar
