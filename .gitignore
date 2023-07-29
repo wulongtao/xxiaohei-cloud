@@ -1,6 +1,5 @@
 */logs/
 target/
-nacos/
 sentinel/
 !zz-config/*
 !zz-config/

@@ -21,6 +21,7 @@
         <xxiaohei-cloud-nacos.version>0.0.1-SNAPSHOT</xxiaohei-cloud-nacos.version>
         <xxiaohei-cloud-boot.version>0.0.1-SNAPSHOT</xxiaohei-cloud-boot.version>
         <xxiaohei-cloud-feign.version>0.0.1-SNAPSHOT</xxiaohei-cloud-feign.version>
+        <xxiaohei-nacos-enhancer.version>0.0.1-SNAPSHOT</xxiaohei-nacos-enhancer.version>
     </properties>
 
 </project>

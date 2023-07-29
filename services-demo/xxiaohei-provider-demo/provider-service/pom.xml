@@ -32,9 +32,8 @@
 
         <dependency>
             <groupId>com.xxiaohei.cloud</groupId>
-            <artifactId>xxiaohei-cloud-nacos</artifactId>
-            <version>${xxiaohei-cloud-nacos.version}</version>
-            <type>pom</type>
+            <artifactId>xxiaohei-nacos-enhancer</artifactId>
+            <version>${xxiaohei-nacos-enhancer.version}</version>
         </dependency>
 
         <dependency>
@@ -60,11 +59,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version>
-                <configuration>
-                    <mainClass>com.xxiaohei.ProviderApplication</mainClass>
-                    <skip>true</skip>
-                </configuration>
                 <executions>
                     <execution>
                         <id>repackage</id>

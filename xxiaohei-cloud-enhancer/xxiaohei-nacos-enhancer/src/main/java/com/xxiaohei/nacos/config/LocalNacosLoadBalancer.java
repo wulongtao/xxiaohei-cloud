@@ -6,16 +6,15 @@ import com.alibaba.cloud.nacos.balancer.NacosBalancer;
 import com.alibaba.cloud.nacos.loadbalancer.NacosLoadBalancer;
 import com.alibaba.cloud.nacos.util.InetIPv6Utils;
 import com.alibaba.nacos.client.naming.utils.CollectionUtils;
+import com.xxiaohei.nacos.local.LocalRequestDelegate;
+import com.xxiaohei.nacos.local.LocalRequestProperty;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.loadbalancer.DefaultResponse;
-import org.springframework.cloud.client.loadbalancer.EmptyResponse;
-import org.springframework.cloud.client.loadbalancer.Request;
-import org.springframework.cloud.client.loadbalancer.Response;
+import org.springframework.cloud.client.loadbalancer.*;
 import org.springframework.cloud.loadbalancer.core.NoopServiceInstanceListSupplier;
 import org.springframework.cloud.loadbalancer.core.ReactorServiceInstanceLoadBalancer;
 import org.springframework.cloud.loadbalancer.core.ServiceInstanceListSupplier;
@@ -23,6 +22,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -106,10 +106,12 @@ public class LocalNacosLoadBalancer extends NacosLoadBalancer implements Reactor
     public Mono<Response<ServiceInstance>> choose(Request request) {
         ServiceInstanceListSupplier supplier = serviceInstanceListSupplierProvider
                 .getIfAvailable(NoopServiceInstanceListSupplier::new);
-        return supplier.get(request).next().map(this::getInstanceResponse);
+        //解析请求信息并初始化本地请求配置
+        LocalRequestProperty localRequestProperty = LocalRequestDelegate.parseLocalRequestProperty(request);
+        return supplier.get(request).next().mapNotNull(i -> getInstanceResponse(localRequestProperty, i));
     }
 
-    private Response<ServiceInstance> getInstanceResponse(
+    private Response<ServiceInstance> getInstanceResponse(LocalRequestProperty localRequestProperty,
             List<ServiceInstance> serviceInstances) {
         if (serviceInstances.isEmpty()) {
             log.warn("No servers available for service: " + this.serviceId);
@@ -138,7 +140,11 @@ public class LocalNacosLoadBalancer extends NacosLoadBalancer implements Reactor
             }
             instancesToChoose = this.filterInstanceByIpType(instancesToChoose);
 
-            //查询元数据，调用指定的方法
+            //如果找到本地应用，直接返回该服务实例
+            ServiceInstance localServiceInstance = LocalRequestDelegate.obtainLocalInstance(localRequestProperty, instancesToChoose);
+            if (Objects.nonNull(localServiceInstance)) {
+                return new DefaultResponse(localServiceInstance);
+            }
 
             ServiceInstance instance = NacosBalancer
                     .getHostByRandomWeight3(instancesToChoose);

@@ -3,4 +3,4 @@ spring:
     nacos:
       discovery:
         metadata:
-          auther: xxiaohei
+          cloud-developer: xxiaohei
