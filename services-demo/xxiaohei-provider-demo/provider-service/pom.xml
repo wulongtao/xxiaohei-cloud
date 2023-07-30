@@ -24,6 +24,11 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.xxiaohei.cloud</groupId>
             <artifactId>xxiaohei-cloud-sentinel</artifactId>
             <version>${xxiaohei-cloud-nacos.version}</version>
@@ -38,9 +43,21 @@
 
         <dependency>
             <groupId>com.xxiaohei.cloud</groupId>
+            <artifactId>xxiaohei-mybatis-enhancer</artifactId>
+            <version>${xxiaohei-mybatis-enhancer.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xxiaohei.cloud</groupId>
             <artifactId>xxiaohei-cloud-boot</artifactId>
             <version>${xxiaohei-cloud-boot.version}</version>
             <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

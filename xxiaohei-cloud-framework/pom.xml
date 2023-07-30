@@ -17,6 +17,7 @@
         <module>xxiaohei-cloud-gateway</module>
         <module>../xxiaohei-cloud-enhancer/xxiaohei-feign-enhancer</module>
         <module>../xxiaohei-cloud-enhancer/xxiaohei-nacos-enhancer</module>
+        <module>../xxiaohei-cloud-enhancer/xxiaohei-mybatis-enhancer</module>
     </modules>
 
     <properties>

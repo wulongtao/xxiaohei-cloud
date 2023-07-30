@@ -22,6 +22,7 @@
         <xxiaohei-cloud-boot.version>0.0.1-SNAPSHOT</xxiaohei-cloud-boot.version>
         <xxiaohei-cloud-feign.version>0.0.1-SNAPSHOT</xxiaohei-cloud-feign.version>
         <xxiaohei-nacos-enhancer.version>0.0.1-SNAPSHOT</xxiaohei-nacos-enhancer.version>
+        <xxiaohei-mybatis-enhancer.version>0.0.1-SNAPSHOT</xxiaohei-mybatis-enhancer.version>
     </properties>
 
 </project>
