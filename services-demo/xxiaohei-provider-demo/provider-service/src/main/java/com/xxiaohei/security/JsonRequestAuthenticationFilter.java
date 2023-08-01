@@ -31,8 +31,8 @@ public class JsonRequestAuthenticationFilter extends UsernamePasswordAuthenticat
                 Map<String,String> authenticationBean = new ObjectMapper().readValue(is, new TypeReference<>() {});
                 String username = authenticationBean.get(getUsernameParameter());
                 String password = authenticationBean.get(getPasswordParameter());
-                UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);
-                return this.getAuthenticationManager().authenticate(authRequest);
+                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
+                return this.getAuthenticationManager().authenticate(authenticationToken);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

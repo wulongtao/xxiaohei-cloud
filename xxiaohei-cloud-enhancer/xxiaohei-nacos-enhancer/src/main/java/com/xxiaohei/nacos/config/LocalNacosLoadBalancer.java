@@ -6,7 +6,7 @@ import com.alibaba.cloud.nacos.balancer.NacosBalancer;
 import com.alibaba.cloud.nacos.loadbalancer.NacosLoadBalancer;
 import com.alibaba.cloud.nacos.util.InetIPv6Utils;
 import com.alibaba.nacos.client.naming.utils.CollectionUtils;
-import com.xxiaohei.nacos.local.LocalRequestDelegate;
+import com.xxiaohei.nacos.local.LocalRequestProcessor;
 import com.xxiaohei.nacos.local.LocalRequestProperty;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
@@ -14,7 +14,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.loadbalancer.*;
+import org.springframework.cloud.client.loadbalancer.DefaultResponse;
+import org.springframework.cloud.client.loadbalancer.EmptyResponse;
+import org.springframework.cloud.client.loadbalancer.Request;
+import org.springframework.cloud.client.loadbalancer.Response;
 import org.springframework.cloud.loadbalancer.core.NoopServiceInstanceListSupplier;
 import org.springframework.cloud.loadbalancer.core.ReactorServiceInstanceLoadBalancer;
 import org.springframework.cloud.loadbalancer.core.ServiceInstanceListSupplier;
@@ -107,7 +110,7 @@ public class LocalNacosLoadBalancer extends NacosLoadBalancer implements Reactor
         ServiceInstanceListSupplier supplier = serviceInstanceListSupplierProvider
                 .getIfAvailable(NoopServiceInstanceListSupplier::new);
         //解析请求信息并初始化本地请求配置
-        LocalRequestProperty localRequestProperty = LocalRequestDelegate.parseLocalRequestProperty(request);
+        LocalRequestProperty localRequestProperty = LocalRequestProcessor.parseLocalRequestProperty(request);
         return supplier.get(request).next().mapNotNull(i -> getInstanceResponse(localRequestProperty, i));
     }
 
@@ -141,7 +144,7 @@ public class LocalNacosLoadBalancer extends NacosLoadBalancer implements Reactor
             instancesToChoose = this.filterInstanceByIpType(instancesToChoose);
 
             //如果找到本地应用，直接返回该服务实例
-            ServiceInstance localServiceInstance = LocalRequestDelegate.obtainLocalInstance(localRequestProperty, instancesToChoose);
+            ServiceInstance localServiceInstance = LocalRequestProcessor.obtainLocalInstance(localRequestProperty, instancesToChoose);
             if (Objects.nonNull(localServiceInstance)) {
                 return new DefaultResponse(localServiceInstance);
             }

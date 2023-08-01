@@ -1,6 +1,5 @@
 package com.xxiaohei.nacos.local;
 
-import com.xxiaohei.nacos.config.LocalNacosLoadBalancer;
 import com.xxiaohei.nacos.constants.LocalNacosConfigConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,8 +20,8 @@ import java.util.Objects;
  * @author xxiaohei
  * @since 2023-07-29 12:26
  */
-public class LocalRequestDelegate {
-    private static final Logger log = LoggerFactory.getLogger(LocalRequestDelegate.class);
+public class LocalRequestProcessor {
+    private static final Logger log = LoggerFactory.getLogger(LocalRequestProcessor.class);
 
     /**
     * 封装本地请求配置信息，转发请求时用到
