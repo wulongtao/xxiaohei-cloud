@@ -3,21 +3,24 @@ package com.xxiaohei.security;
 import com.alibaba.fastjson.JSON;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+import org.springframework.session.FindByIndexNameSessionRepository;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisIndexedHttpSession;
+import org.springframework.session.security.SpringSessionBackedSessionRegistry;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -29,7 +32,11 @@ import java.util.Map;
  */
 @Slf4j
 @Configuration
+@EnableRedisIndexedHttpSession
+@EnableWebSecurity
 public class SecurityConfig {
+    @Autowired
+    private FindByIndexNameSessionRepository sessionRepository;
 
     @Bean
     public AuthenticationManager authenticationManager() {
@@ -68,7 +75,10 @@ public class SecurityConfig {
                 .permitAll()
                 .and()
                 //关闭 csrf 保护机制，本质上就是从 Spring Security 过滤器链中移除了 CsrfFilter
-                .csrf().disable();
+                .sessionManagement()
+                .maximumSessions(-1)
+                .sessionRegistry(sessionRegistry());;
+        http.csrf().disable();
         http.addFilterBefore(jsonRequestAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
@@ -126,5 +136,10 @@ public class SecurityConfig {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Bean
+    public SpringSessionBackedSessionRegistry sessionRegistry(){
+        return new SpringSessionBackedSessionRegistry(sessionRepository);
     }
 }

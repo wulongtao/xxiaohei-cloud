@@ -43,3 +43,7 @@ spring:
     import:
       - optional:nacos:${spring.application.name}.${spring.cloud.nacos.config.file-extension}?refresh=true
       - optional:nacos:application-datasource.yaml
+  data:
+    redis:
+      port: 6379
+      host: 172.22.215.68
