@@ -1,0 +1,33 @@
+server:
+  port: 10000
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web: # http://127.0.0.1:18081/actuator/nacosconfig
+      exposure:
+        include: '*'
+spring:
+  application:
+    name: xxiaohei-oauth2-server-service
+  cloud:
+    nacos:
+      config:
+        namespace: ${spring.profiles.active}
+        contextPath: /nacos
+        prefix: ${spring.application.name}
+        file-extension: yaml
+      discovery:
+        namespace: ${spring.profiles.active}
+        ephemeral: true #true为临时实例、false为持久化实例
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+  config:
+    import:
+      - optional:nacos:${spring.application.name}.${spring.cloud.nacos.config.file-extension}?refresh=true
+      - optional:nacos:application-sentinel.yaml
+logging:
+  level:
+    root: info

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>com.xxiaohei.cloud</groupId>
+        <artifactId>xxiaohei-cloud-framework</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modules>
+        <module>xxiaohei-oauth2-server-service</module>
+    </modules>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>xxiaohei-oauth2-server</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <xxiaohei-cloud-nacos.version>0.0.1-SNAPSHOT</xxiaohei-cloud-nacos.version>
+        <xxiaohei-cloud-boot.version>0.0.1-SNAPSHOT</xxiaohei-cloud-boot.version>
+        <xxiaohei-cloud-feign.version>0.0.1-SNAPSHOT</xxiaohei-cloud-feign.version>
+        <xxiaohei-nacos-enhancer.version>0.0.1-SNAPSHOT</xxiaohei-nacos-enhancer.version>
+        <xxiaohei-mybatis-enhancer.version>0.0.1-SNAPSHOT</xxiaohei-mybatis-enhancer.version>
+    </properties>
+
+</project>
