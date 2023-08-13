@@ -4,7 +4,7 @@ create table sys_user
     user_id      bigint unsigned  not null comment '用户id'
         primary key,
     user_name    varchar(50)      not null comment '用户名',
-    user_password    varchar(50)      not null comment '用户密码',
+    password    varchar(50)      not null comment '用户密码',
     is_deleted   tinyint unsigned not null comment '是否删除：0-未删除 1-删除',
     gmt_create   datetime         not null default current_timestamp comment '创建事件',
     gmt_modified datetime         not null default current_timestamp on update current_timestamp comment '修改时间'
@@ -16,6 +16,7 @@ create table sys_role
 (
     role_id      bigint unsigned  not null comment '用户id'
         primary key,
+    role_code    varchar(32)      not null comment '角色code',
     role_name    varchar(50)      not null comment '角色名称',
     is_deleted   tinyint unsigned not null comment '是否删除：0-未删除 1-删除',
     gmt_create   datetime         not null default current_timestamp comment '创建事件',

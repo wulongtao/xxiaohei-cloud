@@ -15,7 +15,7 @@ import com.zaxxer.hikari.HikariDataSource;
 public class MybatisFlexCodegen {
     private static final String BASE_PACKAGE = "com.xxiaohei.cloud.database";
 
-    private static final String TABLE_PREFIX = "sys_";
+    private static final String TABLE_PREFIX = "";
     private static final String[] GENERATE_TABLE = new String[]{"sys_user", "sys_role", "sys_user_role", "sys_permission", "sys_role_permission"};
     private static final String SOURCE_DIR = "D:\\Java\\xxiaohei-cloud\\cloud-core-services\\xxiaohei-oauth2-server\\xxiaohei-oauth2-server-service\\src\\main\\java";
     private static final String MAPPER_XML_PATH = "D:\\Java\\xxiaohei-cloud\\cloud-core-services\\xxiaohei-oauth2-server\\xxiaohei-oauth2-server-service\\src\\main\\resources\\mapper";

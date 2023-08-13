@@ -13,17 +13,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 用户角色表 实体类。
+ * 权限表 实体类。
  *
  * @author xxiaohei
- * @since 2023-08-08
+ * @since 2023-08-13
  */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(value = "sys_user_role")
-public class UserRoleDO extends BaseDO implements Serializable {
+@Table(value = "sys_role_permission")
+public class SysRolePermissionDO extends BaseDO implements Serializable {
 
     /**
      * 关联表id
@@ -32,9 +32,9 @@ public class UserRoleDO extends BaseDO implements Serializable {
     private BigInteger id;
 
     /**
-     * 用户id
+     * 权限表id
      */
-    private BigInteger userId;
+    private BigInteger permissionId;
 
     /**
      * 角色id

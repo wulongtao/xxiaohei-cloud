@@ -1,7 +1,7 @@
 package com.xxiaohei.cloud.controller;
 
-import com.xxiaohei.cloud.database.entity.UserDO;
-import com.xxiaohei.cloud.database.mapper.UserMapper;
+import com.xxiaohei.cloud.database.entity.SysUserDO;
+import com.xxiaohei.cloud.database.mapper.SysUserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,11 +19,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserMapper userMapper;
+    private final SysUserMapper sysUserMapper;
 
     @RequestMapping("/list")
-    public List<UserDO> testMybatisFlex() {
-        return userMapper.selectAll();
+    public List<SysUserDO> testMybatisFlex() {
+        return sysUserMapper.selectAll();
     }
 
 }

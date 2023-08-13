@@ -13,33 +13,33 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 用户表 实体类。
+ * 角色表 实体类。
  *
  * @author xxiaohei
- * @since 2023-08-08
+ * @since 2023-08-13
  */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(value = "sys_user")
-public class UserDO extends BaseDO implements Serializable {
+@Table(value = "sys_role")
+public class SysRoleDO extends BaseDO implements Serializable {
 
     /**
      * 用户id
      */
     @Id
-    private BigInteger userId;
+    private BigInteger roleId;
 
     /**
-     * 用户名
+     * 角色名称
      */
-    private String userName;
+    private String roleName;
 
     /**
-     * 密码
+     * 角色code
      */
-    private String userPassword;
+    private String roleCode;
 
     /**
      * 是否删除：0-未删除 1-删除
